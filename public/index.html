@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseGuard | Runtime Application Self-Protection</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="landing-container">
+        <svg class="shield-icon" viewBox="0 0 24 24">
+            <path class="shield-path" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        
+        <h1>PulseGuard</h1>
+        <p class="subtitle">Runtime Application Self-Protection</p>
+        
+        <div class="loading-ring"></div>
+        
+        <button class="btn-start" id="startBtn">Start Demo &rarr;</button>
+        <p class="press-enter">Press ENTER to continue</p>
+    </div>
+
+    <script>
+        const startBtn = document.getElementById('startBtn');
+        const container = document.querySelector('.landing-container');
+
+        function navigateToChat() {
+            container.style.animation = 'fadeOut 0.5s ease-out forwards';
+            setTimeout(() => {
+                window.location.href = 'chat.html';
+            }, 500);
+        }
+
+        startBtn.addEventListener('click', navigateToChat);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                navigateToChat();
+            }
+        });
+    </script>
+</body>
+</html>

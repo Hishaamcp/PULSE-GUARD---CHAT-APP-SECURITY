@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseGuard Demo | Live Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="chat-wrapper">
+        <!-- User A Panel -->
+        <div class="chat-panel" id="panel-a">
+            <div class="panel-header">
+                <div class="user-info">
+                    <div class="avatar">A</div>
+                    <div class="user-name">User A</div>
+                </div>
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span>Protected</span>
+                </div>
+            </div>
+            <div class="messages-area" id="messages-a"></div>
+            <div class="typing-indicator" id="typing-a">User B is typing...</div>
+            <div class="input-area">
+                <input type="text" id="input-a" placeholder="Type a message..." autocomplete="off">
+                <button class="btn-send" id="send-a">Send</button>
+            </div>
+        </div>
+
+        <!-- User B Panel -->
+        <div class="chat-panel" id="panel-b">
+            <div class="panel-header">
+                <div class="user-info">
+                    <div class="avatar">B</div>
+                    <div class="user-name">User B</div>
+                </div>
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span>Protected</span>
+                </div>
+            </div>
+            <div class="messages-area" id="messages-b"></div>
+            <div class="typing-indicator" id="typing-b">User A is typing...</div>
+            <div class="input-area">
+                <input type="text" id="input-b" placeholder="Type a message..." autocomplete="off">
+                <button class="btn-send" id="send-b">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <p>PulseGuard Active &bull; <span>RASP Engine Monitoring</span></p>
+    </div>
+
+    <!-- RASP Alert Overlay -->
+    <div id="rasp-alert">
+        <div class="alert-box">
+            <span class="alert-icon">⚠</span>
+            <div class="alert-title">Threat Blocked</div>
+            <p class="alert-desc">Suspicious message pattern detected and neutralized by PulseGuard RASP Engine.</p>
+            <button class="btn-dismiss" onclick="closeAlert()">Dismiss</button>
+        </div>
+    </div>
+
+    <script src="pulse.js"></script>
+</body>
+
+</html>
